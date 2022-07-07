@@ -1,5 +1,6 @@
 package com.lfernando488.msavaliacredito.infra.clientes;
 
+import com.lfernando488.msavaliacredito.application.domain.model.Cartao;
 import com.lfernando488.msavaliacredito.application.domain.model.CartaoCliente;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -13,5 +14,7 @@ public interface CartoesResourceClient {
 
     @GetMapping(params = "cpf")
     ResponseEntity<List<CartaoCliente>> getCartoesByCliente(@RequestParam("cpf") String cpf);
+    @GetMapping(params = "renda")
+    ResponseEntity<List<Cartao>> getCartoesRendaAteh(@RequestParam("renda") Long renda);
 
 }
